@@ -7,7 +7,7 @@ const Popular = () => {
   const [data_project, setdata_project] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:6060/popularwomen")
+    fetch("https://frontend-e-commerce-mdgv.onrender.com/popularwomen")
       .then((resp) => resp.json())
       .then((data) => {
         setdata_project(data);

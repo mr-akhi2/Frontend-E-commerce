@@ -16,7 +16,7 @@ const ShopContextProvider = (props) => {
   const [CartItems, setCartItems] = useState(getDefaultCart());
 
   useEffect(() => {
-    fetch("http://localhost:6060/allproducts")
+    fetch("https://frontend-e-commerce-mdgv.onrender.com/allproducts")
       .then((resp) => resp.json())
       .then((data) => {
         setAll_product(data.data);
@@ -25,7 +25,7 @@ const ShopContextProvider = (props) => {
       });
 
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:6060/getcart", {
+      fetch("https://frontend-e-commerce-mdgv.onrender.com/getcart", {
         method: "POST",
         headers: {
           Accept: "application/json",
@@ -47,7 +47,7 @@ const ShopContextProvider = (props) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     // this is for the every user can save their add product
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:6060/addtocart", {
+      fetch("https://frontend-e-commerce-mdgv.onrender.com/addtocart", {
         method: "post",
         headers: {
           Accept: "application/form-data",
@@ -66,7 +66,7 @@ const ShopContextProvider = (props) => {
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch("http://localhost:6060/removefromcart", {
+      fetch("https://frontend-e-commerce-mdgv.onrender.com/removefromcart", {
         method: "post",
         headers: {
           Accept: "application/form-data",

@@ -65,14 +65,17 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       let responsData;
-      const response = await fetch("http://localhost:6060/login", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://frontend-e-commerce-mdgv.onrender.com/login",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       responsData = await response.json();
 
@@ -92,14 +95,17 @@ const Login = () => {
 
         console.log("Sending email:", formData.email);
 
-        const mailResponse = await fetch("http://localhost:6060/sendmail", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json", // Fixed typo
-          },
-          body: JSON.stringify({ email: formData.email }), // Send as an object
-        });
+        const mailResponse = await fetch(
+          "https://frontend-e-commerce-mdgv.onrender.com/sendmail",
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json", // Fixed typo
+            },
+            body: JSON.stringify({ email: formData.email }), // Send as an object
+          }
+        );
 
         const resData = await mailResponse.json();
         console.log("Email response:", resData);
@@ -116,14 +122,17 @@ const Login = () => {
   const handleSignup = async () => {
     // console.log("Signup:", formData);
     let responsData;
-    let response = await fetch("http://localhost:6060/signup", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
+    let response = await fetch(
+      "https://frontend-e-commerce-mdgv.onrender.com/signup",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    )
       .then((resp) => resp.json())
       .then((data) => {
         responsData = data;
@@ -147,14 +156,17 @@ const Login = () => {
 
       // console.log("Sending email:", formData.email);
 
-      const mailResponse = await fetch("http://localhost:6060/sendmail", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json", // Fixed typo
-        },
-        body: JSON.stringify({ email: formData.email }), // Send as an object
-      });
+      const mailResponse = await fetch(
+        "https://frontend-e-commerce-mdgv.onrender.com/sendmail",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json", // Fixed typo
+          },
+          body: JSON.stringify({ email: formData.email }), // Send as an object
+        }
+      );
 
       const resData = await mailResponse.json();
       console.log("Email response:", resData);
